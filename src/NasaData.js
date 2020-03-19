@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import NasaCard from "./NasaCard";
 import axios from "axios";
+import styled from 'styled-components';
 
+const NasaImg = styled.div `
+display: flex;
+background: #99f3eb;
+border: 5px solid grey;
+box-shadow: 10px 10px;
+margin: 10%;
+padding: 5%;
+`
 function NasaData() {
     const [data, setData] = useState([]);
 
@@ -16,7 +25,7 @@ function NasaData() {
             });
     }, []);
     return(
-        <div className="image">
+        <NasaImg>
             <NasaCard
             key={data.id}
             title={data.title}
@@ -24,7 +33,7 @@ function NasaData() {
             date={data.date}
             img={data.url}
             />
-        </div>
+        </NasaImg>
     );
 }
 
